@@ -1,0 +1,24 @@
+package com.example.jdbcdemo.domain;
+
+public enum Brand {
+	Sony,
+	Microsoft,
+	Nintendo,
+	Sega,
+	Atari,
+	Bandai;
+	
+	private String brand;
+	
+	private Brand (String brand) {
+		this.brand = brand;
+	}
+	
+	public String getBrand(){
+		return brand;
+	}
+	
+	public void setBrand(String brand){
+		this.brand = brand;
+	}
+}
