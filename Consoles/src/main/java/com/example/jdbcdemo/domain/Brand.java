@@ -8,3 +8,11 @@ public enum Brand {
 	Atari,
 	Bandai
 }
+//public enum Brand {
+//	Sony("Sony"),
+//	Microsoft("Microsoft"),
+//	Nintendo("Nintendo"),
+//	Sega("Sega"),
+//	Atari("Atari"),
+//	Bandai("Bandai")
+//}

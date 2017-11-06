@@ -5,18 +5,18 @@ public class Console {
 	private int id_console;
 	private String name;
 	private Brand brand;
-	private int yearOfPremiere;
+	private int premiere;
 	private double price;
 
 	public Console(){
 	}
 	
-	public int getYearOfPremiere() {
-		return yearOfPremiere;
+	public int getPremiere() {
+		return premiere;
 	}
 
-	public void setYearOfPremiere(int yearOfPremiere) {
-		this.yearOfPremiere = yearOfPremiere;
+	public void setPremiere(int premiere) {
+		this.premiere = premiere;
 	}
 	
 	public Brand getBrand() {
