@@ -5,7 +5,6 @@ public class Console {
 	private int id_console;
 	private String name;
 	private String brand;
-	//private Brand brand;
 	private int premiere;
 	private double price;
 
@@ -34,14 +33,6 @@ public class Console {
 	public void setPremiere(int premiere) {
 		this.premiere = premiere;
 	}
-	
-//	public Brand getBrand() {
-//		return brand;
-//	}
-//
-//	public void setBrand(Brand brand) {
-//		this.brand = brand;
-//	}
 
 	public int getId(){
 		return id_console;

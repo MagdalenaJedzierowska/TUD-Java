@@ -20,18 +20,18 @@ public class ConsoleManagerTest {
 	private final static int PREMIERE_1 = 1996;
 	private final static double PRICE_1 = 1599.00;
 	
-	private final static String NAME_2 = "Microsoft";
-	private final static String BRAND_2 = "XBox";
-	private final static int PREMIERE_2 = 2002;
-	private final static double PRICE_2 = 1399.00;
+	private final static String NAME_2 = "PlayStation 2";
+	private final static String BRAND_2 = "Sony";
+	private final static int PREMIERE_2 = 2001;
+	private final static double PRICE_2 = 2699.00;
 	
-	private final static String NAME_3 = "Sega";
-	private final static String BRAND_3 = "Dreamcast";
+	private final static String NAME_3 = "Dreamcast";
+	private final static String BRAND_3 = "Sega";
 	private final static int PREMIERE_3 = 1999;
 	private final static double PRICE_3 = 1450.00;
 	
-	private final static String NAME_4 = "Nintendo";
-	private final static String BRAND_4 = "64";
+	private final static String NAME_4 = "64";
+	private final static String BRAND_4 = "Nintendo";
 	private final static int PREMIERE_4 = 1997;
 	private final static double PRICE_4 = 1099.00;
 	
@@ -116,11 +116,26 @@ public class ConsoleManagerTest {
 		consoleManager.addConsole(console3);
 		consoleManager.addConsole(console4);
 		
-		//List<Console>  consoles = consoleManager.getAllConsoles();
-		//Console consoleRetrieved = consoles.get(0);
 		consoleManager.deleteConsoles();
 		assertEquals(0, consoleManager.getAllConsoles().size());
+	}
+	
+	@Test // CHECK SEARCHING
+	public void checkSearch(){
+		consoleManager.deleteConsoles();
+
+		Console console1 = new Console(NAME_1, BRAND_1, PREMIERE_1, PRICE_1);
+		Console console2 = new Console(NAME_2, BRAND_2, PREMIERE_2, PRICE_2);
+		Console console3 = new Console(NAME_3, BRAND_3, PREMIERE_3, PRICE_3);
+		Console console4 = new Console(NAME_4, BRAND_4, PREMIERE_4, PRICE_4);
+		consoleManager.addConsole(console1);
+		consoleManager.addConsole(console2);
+		consoleManager.addConsole(console3);
+		consoleManager.addConsole(console4);
 		
+		List<Console> consoles = consoleManager.searchConsoles("NAME", NAME_1);
+		
+		assertEquals(2, consoles.size());
 	}
 	
 }
