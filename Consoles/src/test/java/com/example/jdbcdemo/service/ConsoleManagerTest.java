@@ -40,16 +40,16 @@ public class ConsoleManagerTest {
 	Console console3 = new Console(NAME_3, BRAND_3, PREMIERE_3, PRICE_3);
 	Console console4 = new Console(NAME_4, BRAND_4, PREMIERE_4, PRICE_4);
 	
-	@Test
+	@Test // CHECK CONNETION
 	public void checkConnection(){
 		assertNotNull(consoleManager.getConnection());
 	}
 	
-	@Test
+	@Test // CHECK ADDING SINGLE
 	public void checkAdding(){
 		Console console = new Console(NAME_1, BRAND_1, PREMIERE_1, PRICE_1);
 		consoleManager.deleteConsoles();
-		assertEquals(1,consoleManager.addConsoles(console));
+		assertEquals(1,consoleManager.addConsole(console));
 		
 		List<Console> consoles = consoleManager.getAllConsoles();
 		Console consoleRetrieved = consoles.get(0);
@@ -60,7 +60,7 @@ public class ConsoleManagerTest {
 		assertEquals(PRICE_1, consoleRetrieved.getPrice(), 0.001);
 	}
 	
-	@Test
+	@Test // CHECK ADDING ALL
 	public void checkAddAll(){
 		consoleManager.deleteConsoles();
 		
@@ -80,11 +80,11 @@ public class ConsoleManagerTest {
 		assertThat(size, either(is(4)).or(is(0)));
 	}
 	
-	@Test
+	@Test // CHECK UPDATE SINGLE
 	public void checkUpdate(){
 		Console console = new Console(NAME_1, BRAND_1, PREMIERE_1, PRICE_1);
 		consoleManager.deleteConsoles();
-		assertEquals(1,consoleManager.addConsoles(console));
+		assertEquals(1,consoleManager.addConsole(console));
 		
 		List<Console> consoles = consoleManager.getAllConsoles();
 		Console consoleRetrieved = consoles.get(0);
@@ -103,6 +103,24 @@ public class ConsoleManagerTest {
 		assertEquals(BRAND_2, consoleRetrieved.getBrand());
 		assertEquals(PREMIERE_2, consoleRetrieved.getPremiere());
 		assertEquals(PRICE_2, consoleRetrieved.getPrice(), 0.001);
+	}
+	
+	@Test // CHECK DELETING ALL
+	public void checkDeleteAll(){
+		Console console1 = new Console(NAME_1, BRAND_1, PREMIERE_1, PRICE_1);
+		Console console2 = new Console(NAME_2, BRAND_2, PREMIERE_2, PRICE_2);
+		Console console3 = new Console(NAME_3, BRAND_3, PREMIERE_3, PRICE_3);
+		Console console4 = new Console(NAME_4, BRAND_4, PREMIERE_4, PRICE_4);
+		consoleManager.addConsole(console1);
+		consoleManager.addConsole(console2);
+		consoleManager.addConsole(console3);
+		consoleManager.addConsole(console4);
+		
+		//List<Console>  consoles = consoleManager.getAllConsoles();
+		//Console consoleRetrieved = consoles.get(0);
+		consoleManager.deleteConsoles();
+		assertEquals(0, consoleManager.getAllConsoles().size());
+		
 	}
 	
 }
