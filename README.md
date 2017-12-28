@@ -1,2 +1,1 @@
-# TUD-Java
-Technologie utrzymywania danych dla języka Java
+# Technologie utrwalania danych dla języka Java
